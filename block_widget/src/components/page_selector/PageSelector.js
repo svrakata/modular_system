@@ -23,4 +23,5 @@ const PageSelector = (props) => {
     )
 }
 
+
 export default connect(mapPropsToState)(PageSelector)
