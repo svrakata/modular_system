@@ -1,19 +1,21 @@
-import React, { useState } from 'react'
-import { boundSetPages } from './components/page_selector/actions'
+import React from 'react'
 import PageSelector from './components/page_selector/PageSelector'
-import BlockList from './components/blocks/BlockList';
-
-const BlockWidget = () => {
-
-    // const handle
+import BlocksContainer from './components/blocks/BlocksContainer';
+import { connect } from 'react-redux';
 
 
+const mapPropsToState = (state) => ({
+    pagesLoaded: state.pageSelector.loaded,
+    error: state.pageSelector.error,
+})
+
+const BlockWidget = ({ pagesLoaded, error }) => {
     return (
         <React.Fragment>
             <PageSelector/>
-            <BlockList/>
+            {pagesLoaded && !error && <BlocksContainer/>}
         </React.Fragment>
     )
 }
 
-export default BlockWidget
+export default connect(mapPropsToState)(BlockWidget)

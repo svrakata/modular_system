@@ -11,6 +11,8 @@ import store from './redux/store'
 
 // set some stuff to the store
 
+// window.store = store
+
 ReactDOM.render(
 
     <Provider store={store}>
@@ -24,3 +26,8 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/pages.json
+// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/home.json
+// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/bulgaria.json
+// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/world.json

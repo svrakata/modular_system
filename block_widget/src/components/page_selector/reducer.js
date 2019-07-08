@@ -1,8 +1,10 @@
-import { SET_PAGES, SET_CURRENT_PAGE } from "./types"
+import { SET_PAGES, SET_CURRENT_PAGE, SET_PAGES_LOADED, SET_PAGES_ERROR } from "./types"
 
 const initialState = {
     pages: [],
     current: '',
+    loaded: false,
+    error: false,
 }
 
 const pageSelectorReducer = (state = initialState, action) => {
@@ -12,6 +14,12 @@ const pageSelectorReducer = (state = initialState, action) => {
 
         case SET_CURRENT_PAGE:
             return Object.assign({}, state, { current: action.current })
+
+        case SET_PAGES_LOADED:
+            return Object.assign({}, state, { loaded: action.loaded })
+
+        case SET_PAGES_ERROR:
+            return Object.assign({}, state, { error: action.error })
 
         default:
             return state
