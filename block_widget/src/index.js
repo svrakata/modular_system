@@ -28,6 +28,7 @@ ReactDOM.render(
 serviceWorker.unregister();
 
 // http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/pages.json
-// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/home.json
-// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/bulgaria.json
-// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/world.json
+// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/34.json
+// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/45.json
+// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/77.json
+// http://deelay.me/2000/http://test.dev.smakmedia.com/block_widget/blocks.json

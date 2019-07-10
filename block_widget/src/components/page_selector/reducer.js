@@ -1,10 +1,11 @@
-import { SET_PAGES, SET_CURRENT_PAGE, SET_PAGES_LOADED, SET_PAGES_ERROR } from "./types"
+import { SET_PAGES, SET_CURRENT_PAGE, SET_PAGES_LOADED, SET_PAGES_ERROR, SET_BLOCKS_LIST } from "./types"
 
 const initialState = {
     pages: [],
     current: '',
     loaded: false,
     error: false,
+    blocksList: [],
 }
 
 const pageSelectorReducer = (state = initialState, action) => {
@@ -20,6 +21,9 @@ const pageSelectorReducer = (state = initialState, action) => {
 
         case SET_PAGES_ERROR:
             return Object.assign({}, state, { error: action.error })
+
+        case SET_BLOCKS_LIST:
+            return Object.assign({}, state, { blocksList: action.blocksList })
 
         default:
             return state

@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Block from './Block';
 
 const SBlockList = styled.div`
+    flex: 0 0 49%;
 `
 
-const BlockList = ({ blocks = [] } = {}) => {
+const BlockList = (props) => {
+    const { blocks } = props
     const [draggedEl, setDraggedEl] = useState({ order: null, el: null })
     const [orderedBoxes, resetOrder] = useState(blocks.sort((a, b) => a.position - b.position))
     const [loading, setLoading] = useState(true)
-    
     const setDragNode = (position, remove) => {
         const newOrder = [...orderedBoxes]
         newOrder[position].dragged = remove ? false : true
@@ -31,6 +32,12 @@ const BlockList = ({ blocks = [] } = {}) => {
         console.log(orderedBoxes)
     }
 
+    useEffect(() => {
+        let currBlocks = blocks.sort((a, b) => a.position - b.position)
+        currBlocks.forEach((e, i) => e.position = i)
+        resetOrder(currBlocks)
+    }, [blocks])
+
     return (
         <SBlockList>
             {
@@ -39,7 +46,9 @@ const BlockList = ({ blocks = [] } = {}) => {
                         key={i}
                         id={e.id}
                         position={e.position}
-                        label={e.label}
+                        title={e.title}
+                        column={e.column}
+                        active={e.active}
                         dragged={e.dragged || false}
                         draggedEl={draggedEl}
                         setDraggedEl={setDraggedEl}
